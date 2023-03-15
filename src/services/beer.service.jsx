@@ -1,6 +1,12 @@
 import * as HttpService from "./http.service";
 
-const ApiUrl = "https://api.punkapi.com/v2"
+const ApiUrl = "https://api.punkapi.com/v2";
+
+const GET_BEERS_API = (page, itemsPerPage) =>
+  UrlParamsReplace("/beers?page=:page&per_page=:itemsPerPage", {
+    page,
+    itemsPerPage,
+  });
 
 const UrlParamsReplace = (url, params = {}) => {
   let urlWithPrefix = `${ApiUrl}${url}`;
@@ -12,9 +18,6 @@ const UrlParamsReplace = (url, params = {}) => {
   return urlWithPrefix;
 };
 
-const GET_BEERS_API = (page, perPage) => UrlParamsReplace('/beers?page=:page&per_page=:perPage', { page, perPage })
-
-export const getBeers = (page, perPage) => {
-  return HttpService.getWithOutAuth(GET_BEERS_API(page, perPage));
-}
-
+export const getBeers = (page, itemsPerPage) => {
+  return HttpService.get(GET_BEERS_API(page, itemsPerPage));
+};

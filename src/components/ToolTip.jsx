@@ -4,7 +4,8 @@ const Tooltip = (props, className) => {
   const [active, setActive] = useState(false);
 
   return (
-    <div className="relative w-fit"
+    <div
+      className="relative w-fit"
       onMouseEnter={() => {
         setActive(true);
       }}
@@ -13,9 +14,11 @@ const Tooltip = (props, className) => {
       }}
     >
       <div className="content">{props.children}</div>
-      
+
       {active && (
-        <div className={`tooltip ${props.className} ${props.position}`}>{props.content}</div>
+        <div className={`tooltip ${props.className} ${props.position}`}>
+          {props.content}
+        </div>
       )}
     </div>
   );

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getWithOutAuth = (url) => {
+export const get = (url) => {
   return new Promise((resolve, _reject) => {
     axios
       .get(url)
@@ -14,4 +14,3 @@ export const getWithOutAuth = (url) => {
       });
   });
 };
-
