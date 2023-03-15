@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getMoreBeers } from '../services/beer.service'
+import { getBeers } from '../services/beer.service'
 import _ from 'lodash';
 import AddCustomBeer from './customBeer.jsx';
 import CustomBearList from '../components/CustomBeerList.jsx'
@@ -20,7 +20,7 @@ export default function Beer() {
 
   useEffect(() => {
     const getAllBears = async () => {
-      const response = await getMoreBeers(1, 10)
+      const response = await getBeers(1, 10)
       setBeers(response.data)
     }
     getAllBears()
@@ -35,7 +35,7 @@ export default function Beer() {
   }
 
   const fetchNewBeers = async (pageToBeFetched, totalBeersFetched) => {
-    const response = await getMoreBeers(pageToBeFetched, totalBeersFetched)
+    const response = await getBeers(pageToBeFetched, totalBeersFetched)
     const filteredBeers = filterBeers(response.data, beers);
     const beersSortedById = sortBeersById(filteredBeers)
     setBeers(beersSortedById)
