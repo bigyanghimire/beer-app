@@ -1,3 +1,78 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.tooltip {
+  white-space: nowrap;
+  position: absolute;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  background: #1f1f37;
+  border-radius: 4px;
+  padding: 6px 8px;
+}
+
+.tooltip::after {
+  position: absolute;
+  content: "";
+}
+
+.tooltip.top {
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip.top::after {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #1f1f37;
+}
+
+.tooltip.bottom {
+  left: -10px;
+  top: calc(100% + 10px);
+
+}
+
+.tooltip.bottom::after {
+  left: 10px;
+  top: -8px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #1f1f37;
+}
+
+.tooltip.left {
+  top: 0;
+  right: calc(100% + 10px);
+}
+
+.tooltip.left::after {
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid #1f1f37;
+  right: -8px;
+  top: 8px;
+}
+
+.tooltip.right {
+  top: 0;
+  left: calc(100% + 10px);
+}
+
+.tooltip.right::after {
+  left: -8px;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid #1f1f37;
+}
+
+.tooltip .content {
+  display: inline-block;
+}

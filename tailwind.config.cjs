@@ -17,7 +17,7 @@ module.exports = {
   theme: {
     screens: {
       'lg': { 'max': '1200px' },
-      'md':{'min':'1201px'}
+      'md': { 'min': '1201px' }
     },
     colors: {
       ...colors,
@@ -52,7 +52,8 @@ module.exports = {
       "blue": {
         '100': "#133D9A",
         '200': "#133d9ad4",
-        '300':'#0066C3'
+        '300': '#0066C3',
+        '50': '#e8f4f8'
       },
 
       "error": {
@@ -198,6 +199,7 @@ module.exports = {
       }
     },
     plugins: [
+      require('tailwindcss-rtl')
     ]
   },
 }

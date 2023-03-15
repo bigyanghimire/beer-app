@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import {  getMoreBeers } from '../services/beer.service'
+import { getMoreBeers } from '../services/beer.service'
 import _ from 'lodash';
 import AddCustomBeer from './customBear.jsx';
 import CustomBearList from '../components/CustomBearList.jsx'
@@ -74,10 +74,10 @@ export default function Beer() {
               ))
             }
           </div>
-          <p className="flex justify-center text-blue-200" onClick={loadMoreBeers}>Load more</p>
+          <p className="flex justify-center text-blue-200 mb-5" onClick={loadMoreBeers}>Load more</p>
         </>
       }
-      
+
       {
         showCustomBeersSection &&
         <div className='p-20'>
