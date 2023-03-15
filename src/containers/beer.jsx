@@ -13,7 +13,7 @@ export default function Beer() {
 
   const [beers, setBeers] = useState([])
   const [page, setPage] = useState(1)
-  const [perPage, setPerPage] = useState(10)
+  const [perPage, setPerPageItems] = useState(10)
   const [showCustomBeersSection, setShowCustomBeersSection] = useState(false)
   const [showAddCustomBeerDialog, setShowAddCustomBeerDialog] = useState(false)
   const [customBeers, setCustomBeers] = useState(null)
@@ -48,13 +48,13 @@ export default function Beer() {
     if (perPage === maxFetchLimit) {
       pageToBeFetched = page + 1
       totalBeersFetched = 10
-      setPerPage(10)
+      setPerPageItems(10)
       setPage(page + 1)
     }
     else {
       pageToBeFetched = page
       totalBeersFetched = perPage + 10
-      setPerPage(perPage + 10)
+      setPerPageItems(perPage + 10)
     }
     fetchNewBeers(pageToBeFetched, totalBeersFetched)
   }
