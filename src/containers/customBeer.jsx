@@ -30,7 +30,6 @@ export default function AddCustomBeer({ show, close, setCustomBeers }) {
   }, [])
 
   const createNewCustomBeer = (data) => {
-    console.log("data is", data)
     const existingBeers = window.localStorage.getItem('beers')
 
     if (!existingBeers) {
@@ -46,8 +45,7 @@ export default function AddCustomBeer({ show, close, setCustomBeers }) {
         'description': data.description
       }]))
     }
-    let existingBeersAgan = window.localStorage.getItem('beers')
-    setCustomBeers(JSON.parse(existingBeersAgan))
+    setCustomBeers(JSON.parse(window.localStorage.getItem('beers')))
     close(true)
   }
 
@@ -67,7 +65,7 @@ export default function AddCustomBeer({ show, close, setCustomBeers }) {
                 <textarea type="text" className="mt-4 border-gray border-2 bg-gray-100 p-2 rounded" placeholder="Description*" id="description" {...register("description")} />
                 {errors.description && <small className='text-red-500'>Description is required</small>}
                 <div className='flex items-center text-right gap-4 mt-4 justify-end'>
-                  <p className="text-gray-500" onClick={close}>Cancel</p>
+                  <p className="hover:cursor-pointer text-gray-500" onClick={close}>Cancel</p>
                   <button className="bg-blue-300 rounded px-8 py-2 text-white" type="submit">Save</button>
                 </div>
               </div>

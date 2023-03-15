@@ -1,17 +1,19 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getMoreBeers } from '../services/beer.service'
 import _ from 'lodash';
-import AddCustomBeer from './customBear.jsx';
-import CustomBearList from '../components/CustomBearList.jsx'
+import AddCustomBeer from './customBeer.jsx';
+import CustomBearList from '../components/CustomBeerList.jsx'
 import BeerList from '../components/BeerList';
 import TopBar from '../components/TopBar';
 import NoCustomBeer from '../components/NoCustomBeer'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function Beer() {
 
   const [beers, setBeers] = useState([])
   const [page, setPage] = useState(1)
-  const [perPage, setPerPage] = useState(30)
+  const [perPage, setPerPage] = useState(10)
   const [showCustomBeersSection, setShowCustomBeersSection] = useState(false)
   const [showAddCustomBeerDialog, setShowAddCustomBeerDialog] = useState(false)
   const [customBeers, setCustomBeers] = useState(null)
@@ -74,13 +76,13 @@ export default function Beer() {
               ))
             }
           </div>
-          <p className="flex justify-center text-blue-200 mb-5" onClick={loadMoreBeers}>Load more</p>
+          <p className="flex justify-center text-blue-200 mb-5 gap-2 items-center" ><span className='hover:cursor-pointer' onClick={loadMoreBeers}>Load more <FontAwesomeIcon icon={faChevronDown} /></span></p>
         </>
       }
 
       {
         showCustomBeersSection &&
-        <div className='p-20'>
+        <div className='pt-x-20 pr-20 pl-20 mb-4'>
           {customBeers &&
             <CustomBearList
               customBeers={customBeers}
